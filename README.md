@@ -1,10 +1,14 @@
-# node-red-contrib-socketio
+# node-red-contrib-socketio-extended
 Implementation for [Node-RED](https://nodered.org/) of the popular [Socket.IO](http://socket.io/).
+
+It is forked from `node-red-contrib-socketio` since the original package seems not to be maintained anymore.
+Therefor some pending pull requests from the original repo are already implemented in this one.
+* CORS support
 
 ## Installation
 To install node-red-contrib-socketio use this command
 
-`npm i node-red-contrib-socketio`
+`npm i node-red-contrib-socketio-extended`
 
 ## Composition
 The Socket.IO implementation is made with
@@ -23,6 +27,7 @@ MIT
 ## Thanks
 Thank to: 
 * @nexflo for translating the comments in English and for pre-sending control data 
-* @bimalyn-IBM for implementig rooms
-* @essuraj for implementig rooms listing node
-* @cazellap for pushong adding compatibility to socketIO 3.0
+* @bimalyn-IBM for implementing rooms
+* @essuraj for implementing rooms listing node
+* @cazellap for adding compatibility to socketIO 3.0
+* @
