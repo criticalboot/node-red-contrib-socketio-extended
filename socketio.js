@@ -12,7 +12,7 @@ module.exports = function(RED) {
     this.path = n.path || "/socket.io";
     this.bindToNode = n.bindToNode || false;
     this.corsOrigins = n.corsOrigins || "*";
-    this.corsMethods = n.corsMethods.toUpperCase().split(",") || "GET,POST";
+    this.corsMethods = n.corsMethods?.toUpperCase().split(",") || "GET,POST";
     this.enableCors = n.enableCors || false;
 
     node.log("socketIoConfig - CORS METHODS " + JSON.stringify(this.corsMethods));

@@ -16,18 +16,17 @@
     },
     oneditprepare: function() {
       $("#node-config-input-bindToNode").change(function() {
-        if($(this).is(":checked")) {
-          $(".node-row-bindToNode").hide();
-        } else {
-          $(".node-row-bindToNode").show();
-        }
-      });
-      if (this.bindToNode) {
-        $(".node-config-input-bindToNode").prop('checked', true);
-      } else {
-        $(".node-config-input-bindToNode").prop('checked', false);
-      }
-      $(".node-config-input-bindToNode").change();
+        $(this).is(":checked") ? $(".node-row-bindToNode").hide() : $(".node-row-bindToNode").show()
+      })
+      this.bindToNode ? $(".node-config-input-bindToNode").prop('checked', true) : $(".node-config-input-bindToNode").prop('checked', false)
+      $(".node-config-input-bindToNode").change()
+
+
+      $("#node-config-input-enableCors").change(function() {
+        $(this).is(":checked") ? $(".node-row-enableCors").show() : $(".node-row-enableCors").hide()
+      })
+      this.corsEnabled ? $(".node-config-input-enableCors").prop('checked', true) : $(".node-config-input-enableCors").prop('checked', false)
+      $(".node-config-input-enableCors").change()
     }
   });
 </script>
@@ -52,14 +51,14 @@
   <div class="form-row">
     <input type="checkbox" id="node-config-input-enableCors" style="display: inline-block; width: auto; vertical-align: top;">
     <label for="node-config-input-enableCors" style="width: auto"> Enable Cors</label>
-  </div>
-  <div class="form-row hide">
-    <label for="node-config-input-corsOrigins">Cors Origins</label>
-    <input type="text" id="node-config-input-corsOrigins">
-  </div>
-  <div class="form-row hide">
-    <label for="node-config-input-corsMethods">Cors Methods</label>
-    <input type="text" id="node-config-input-corsMethods">
+    <div class="form-row node-row-enableCors hide">
+      <label for="node-config-input-corsOrigins">Cors Origins</label>
+      <input type="text" id="node-config-input-corsOrigins">
+    </div>
+    <div class="form-row node-row-enableCors hide">
+      <label for="node-config-input-corsMethods">Cors Methods</label>
+      <input type="text" id="node-config-input-corsMethods">
+    </div>
   </div>
 </script>
 
