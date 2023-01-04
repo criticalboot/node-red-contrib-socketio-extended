@@ -4,20 +4,20 @@ module.exports = function(RED) {
   var customProperties = {};
   var sockets = [];
 
-  function socketIoConfig(n) {
-    RED.nodes.createNode(this, n);
+  function socketIoConfig(settings) {
+    RED.nodes.createNode(this, settings);
     var node = this;
-    this.port = n.port || 80;
-    this.sendClient = n.sendClient;
-    this.path = n.path || "/socket.io";
-    this.bindToNode = n.bindToNode || false;
-    this.corsOrigins = n.corsOrigins || "*";
-    this.corsMethods = n.corsMethods?.toUpperCase().split(",") || "GET,POST";
-    this.enableCors = n.enableCors || false;
+    this.port = settings.port || 80;
+    this.serveClient = settings.serveClient;
+    this.path = settings.path || "/socket.io";
+    this.bindToNode = settings.bindToNode || false;
+    this.corsOrigins = settings.corsOrigins || "*";
+    this.corsMethods = settings.corsMethods?.toUpperCase().split(",") || "GET,POST";
+    this.enableCors = settings.enableCors || false;
 
-    node.log("socketIoConfig - CORS METHODS " + JSON.stringify(this.corsMethods));
-    node.log("socketIoConfig - CORS ORIGINS " + JSON.stringify(this.corsOrigins));
-    node.log("socketIoConfig - CORS METHODS " + JSON.stringify(this.enableCors));
+    node.log("CORS Enabled " + JSON.stringify(this.enableCors));
+    node.log("CORS METHODS " + JSON.stringify(this.corsMethods));
+    node.log("CORS ORIGINS " + JSON.stringify(this.corsOrigins));
 
     let corsOptions = {};
 
@@ -34,7 +34,7 @@ module.exports = function(RED) {
       io = new Server(RED.server, corsOptions);
     } else {
       io = new Server(corsOptions);
-      io.serveClient(node.sendClient);
+      io.serveClient(node.serveClient);
       io.path(node.path);
       io.listen(node.port);
     }

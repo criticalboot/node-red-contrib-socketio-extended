@@ -3,8 +3,8 @@
   RED.nodes.registerType('socketio-config',{
     category: 'config',
     defaults: {
-      port: { value:80, required:true, validate:RED.validators.number() },
-      sendClient: { value:true },
+      port: { value: 80, required: true, validate: RED.validators.number() },
+      serveClient: { value: true },
       path: { value:"/socket.io" },
       bindToNode: { value: false },
       corsOrigins: { value: "*" },
@@ -41,8 +41,8 @@
     </div>
   </div>
   <div class="form-row">
-    <label for="node-config-input-sendClient"><i class="fa fa-share-square-o"></i> Serve client js file?</label>
-    <input type="text" id="node-config-input-sendClient">
+    <input type="checkbox" id="node-config-input-serveClient" style="display: inline-block; width: auto; vertical-align: top;">
+    <label for="node-config-input-serveClient"><i class="fa fa-share-square-o"></i> Serve client js file?</label>
   </div>
   <div class="form-row">
     <label for="node-config-input-path"><i class="fa fa-paper-plane-o"></i> InputPath?</label>
